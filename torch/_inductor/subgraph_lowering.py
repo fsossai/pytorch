@@ -58,7 +58,7 @@ class PointwiseSubgraphLowering(torch.fx.Interpreter):
         self._current_op = None
 
         # Used to track buffers created during lowering
-        self.mutated_buffers = OrderedSet()
+        self.mutated_buffers = OrderedSet(root_graph_lowering.mutated_buffers)
         self.buffers = []
 
     @contextmanager
